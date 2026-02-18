@@ -23,4 +23,10 @@ gcloud compute ssh $VM_NAME --zone=us-central1-a --   'cat > ~/gcp_vm_setup.sh &
 
 gcloud compute scp /path/to/user/openclaw.json $VM_NAME:~/.openclaw/ --zone=us-central1-a
 
+## Run the Docker image from Filipp Trigubs hub
+
+gcloud compute ssh $VM_NAME --zone=us-central1-a --   'cd ~/openclaw && docker compose up -d'
+
+## Alternatively run the full build
+
 gcloud compute ssh $VM_NAME --zone=us-central1-a --   'cd ~/openclaw && docker build -t filipptri/openclaw-wacli:latest . && docker compose up -d'
